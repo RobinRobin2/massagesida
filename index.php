@@ -38,66 +38,69 @@
 
 
 <div class="container">
-<div class="row">
-<div class="col">
-<h1>Boka tid nu!</h1>
+    <div class="row">
+        <div class="col">
+            <h1>Boka tid nu!</h1>
 
-<div>
-<label for="bookingdate">Datum</label>
-<input type="date" id="bookingdate" name="bookingd" required><br></br>
+            <div>
+                <label for="bookingdate">Datum</label>
+                <input type="date" id="bookingdate" name="bookingd" required><br></br>
 
-<label for="bookingtime">Tid</label>
-<input type="time" id="bookingtime" name="bookingt" required>
-</div>
+                <label for="bookingtime">Tid</label>
+                <input type="time" id="bookingtime" name="bookingt" required>
+            </div>
 
-<h2>Vilken typ av massage önskas?</h2>
+             <h2>Vilken typ av massage önskas?</h2>
 
-<form action="">
-  <input type="checkbox" id="classic" name="classic" value="">
-  <label for="classic">Klassisk</label>
+            <form action="">
+                <input type="checkbox" id="classic" name="classic" value="">
+                <label for="classic">Klassisk</label>
 
-  <input type="checkbox" id="sport" name="sport" value="">
-  <label for="sport">Sportmassage</label><br>
+                <input type="checkbox" id="sport" name="sport" value="">
+                <label for="sport">Sportmassage</label><br>
 
-  <input type="checkbox" id="fysio" name="fysio" value="">
-  <label for="fysio">Fysioterapi</label>
+                <input type="checkbox" id="fysio" name="fysio" value="">
+                <label for="fysio">Fysioterapi</label>
 
-  <input type="checkbox" id="happy" name="happy" value="">
-  <label for="happy">Happy ending</label><br>
+                <input type="checkbox" id="happy" name="happy" value="">
+                <label for="happy">Happy ending</label><br>
 
 
-</form>
+            
 
-<div class="text">
-<form action="/action_page.php">
-  <label for="fname">Namn</label><br>
-  <input type="text" id="fname" name="fname" value=""><br><br>
+                <div class="text">
+             
+                    <label for="fname">Namn</label><br>
+                    <input type="text" id="fname" name="fname" value=""><br><br>
 
-  <label for="phone">Telefonnummer</label><br>
-  <input type="tel" id="phone" name="phone" value=""><br><br>
-  <input type="submit" value="Skicka">
-</form> 
-</div>
+                    <label for="phone">Telefonnummer</label><br>
+                    <input type="tel" id="phone" name="phone" value=""><br><br>
+                    <input type="submit" value="Skicka">
+                </div>
+            </form> 
 
-</div>
-    <div class="col">
-    <img src="img/spa-g1f937c4ae_1920.jpg" alt="">
+        </div>
+        <div class="col">
+            <img src="img/spa-g1f937c4ae_1920.jpg" alt="">
+
+        </div>
 
     </div>
 
-</div>
+    <div class="row ">
+        <div class="text-center col p-3">
+            <ul class="list-group ">
+                <li class="list-group-item"><strong>Klassisk </strong>1h/60€</li>
+                <li class="list-group-item"><strong>Sportmassage </strong>1h/70€</li>
+                <li class="list-group-item"><strong>Fysioterapi </strong>1h/65€</li>
+                <li class="list-group-item"><strong>Happy ending </strong>1h/100€</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-<div class="col-6">
-<ul class="list-group">
-  <li class="list-group-item"><strong>Klassisk </strong>1h/60€</li>
-  <li class="list-group-item"><strong>Sportmassage </strong>1h/70€</li>
-  <li class="list-group-item"><strong>Fysioterapi </strong>1h/65€</li>
-  <li class="list-group-item"><strong>Happy ending </strong>1h/100€</li>
-</ul>
-</div>
-</div>
+
+
 </body>
 </html>
 
