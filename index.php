@@ -12,29 +12,9 @@
 </head>
 <body>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Hem</a>
-        <a class="nav-link" href="">Boka tid nu!</a>
-        <a class="nav-link" href="#">Prislista</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<?php
+include'navbar.php';
+?>
 
 
 <div class="container">
@@ -43,39 +23,42 @@
             <h1>Boka tid nu!</h1>
 
             <div>
-                <label for="bookingdate">Datum</label>
-                <input type="date" id="bookingdate" name="bookingd" required><br></br>
+                <label for="booking_date">Datum</label>
+                <input type="date" id="booking_date" name="booking_date" required><br></br>
 
-                <label for="bookingtime">Tid</label>
-                <input type="time" id="bookingtime" name="bookingt" required>
+                <label for="booking_startime">Start tid</label>
+                <input type="time" id="booking_startime" name="booking_startime" required>
+
+                <label for="booking_endtime">Slut tid</label>
+                <input type="time" id="booking_endtime" name="booking_endtime" required>
             </div>
 
              <h2>Vilken typ av massage önskas?</h2>
 
-            <form action="">
-                <input type="radio" id="classic" name="classic" value="">
+            <form method="POST" action="">
+                <input type="radio" id="classic" name="massage" value="">
                 <label for="classic">Klassisk</label>
 
-                <input type="radio" id="sport" name="sport" value="">
+                <input type="radio" id="sport" name="massage" value="">
                 <label for="sport">Sportmassage</label><br>
 
-                <input type="radio" id="fysio" name="fysio" value="">
+                <input type="radio" id="fysio" name="massage" value="">
                 <label for="fysio">Fysioterapi</label>
 
-                <input type="radio" id="happy" name="happy" value="">
+                <input type="radio" id="happy" name="massage" value="">
                 <label for="happy">Happy ending</label><br>
 
-
-            
+        
 
                 <div class="text">
              
-                    <label for="fname">Namn</label><br>
-                    <input type="text" id="fname" name="fname" value=""><br><br>
+                    <label for="booking_name">Namn</label><br>
+                    <input type="text" id="booking_name" name="booking_name" value=""><br><br>
 
-                    <label for="phone">Telefonnummer</label><br>
-                    <input type="tel" id="phone" name="phone" value=""><br><br>
-                    <input type="submit" value="Skicka">
+                    <label for="booking_number">Telefonnummer</label><br>
+                    <input type="tel" id="booking_number" name="booking_number" value=""><br><br>
+
+                    <input type="submit" name="booking-submit" value="Skicka">
                 </div>
             </form> 
 
@@ -87,7 +70,7 @@
 
     </div>
 
-    <div class="row ">
+    <div id="test1" class="row ">
         <div class="text-center col p-3">
             <ul class="list-group">
                 <li class="list-group-item"><strong>Klassisk </strong>1h/60€</li>
@@ -105,8 +88,70 @@
 </html>
 
 
+
+
 <?php
 
+include 'includes/config.php';
+
+if(isset($_POST['booking-submit'])){
+	
+$bokningsdatum = $_POST['booking_date'];
+$bokningstartid = $_POST['booking_startime'];
+$bokningsslutid = $_POST['booking_endtime'];
+$bokningsnamn = $_POST['booking_name'];
+$bokningsnummer = $_POST['booking_number'];
+
+echo $bokningsdatum . "<br>";
+echo $bokningstartid . "<br>";
+echo $bokningsslutid . "<br>";
+echo $bokningsnamn . "<br>";
+echo $bokningsnummer . "<br>";
 
 
+if($conn->query("INSERT INTO bookings(booking_date, booking_startime,  booking_endtime, booking_name, booking_number)values('$bokningsdatum', '$bokningstartid',  '$bokningsslutid', '$bokningsnamn', '$bokningsnummer')")){
+	echo "Article created successfully";
+	echo "<a href='index.php'>Return</a>";
+
+}
+else{
+	echo "error";
+	echo "<a href='index.php'>Return</a>";
+
+
+}
+
+}
+
+
+	$queryResult = $conn->query("SELECT * FROM bookings");
+
+foreach ($queryResult as $row)
+
+		{
+
+			echo "<h1>";
+			echo $row['booking_date'] . "<br>";
+			echo "</h1>";
+			echo "<p>";
+			echo $row['booking_startime'] . "<br>"; 
+			echo "<strong>".$row['booking_endtime']." - ";
+			echo $row['booking_name'] . "</strong><br>";
+            echo $row['booking_number'] . "</strong><br>";
+	
+			echo "</p>";
+		}
+
+
+	
 ?>
+
+
+
+
+<?php
+include'footer.php';
+?>
+
+
+
