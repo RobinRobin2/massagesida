@@ -23,6 +23,7 @@ include'navbar.php';
             <h1>Boka tid nu!</h1>
 
             <div>
+
                 <label for="booking_date">Datum</label>
                 <input type="date" id="booking_date" name="booking_date" required><br></br>
 
@@ -45,6 +46,7 @@ include'navbar.php';
                 <input type="radio" id="fysio" name="massage" value="">
                 <label for="fysio">Fysioterapi</label>
 
+
                 <input type="radio" id="happy" name="massage" value="">
                 <label for="happy">Happy ending</label><br>
 
@@ -62,6 +64,7 @@ include'navbar.php';
                 </div>
             </form> 
 
+
         </div>
         <div class="col">
             <img src="img/spa-g1f937c4ae_1920.jpg" alt="">
@@ -70,9 +73,11 @@ include'navbar.php';
 
     </div>
 
-    <div id="test1" class="row ">
+
+    <div class="row ">
         <div class="text-center col p-3">
-            <ul class="list-group">
+            <ul class="list-group ">
+
                 <li class="list-group-item"><strong>Klassisk </strong>1h/60€</li>
                 <li class="list-group-item"><strong>Sportmassage </strong>1h/70€</li>
                 <li class="list-group-item"><strong>Fysioterapi </strong>1h/65€</li>
