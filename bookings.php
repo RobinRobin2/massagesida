@@ -11,23 +11,54 @@
 </head>
 <body>
 
+
+
+
 <?php
+include 'includes/config.php';
 include'navbar.php';
 ?>
 <h1>Dina bokningar</h1>    
 
 
 
-</body>
-</html>
+
+
+
+
+
 
 <?php
+
+
+$queryResult = $conn->query("SELECT * FROM bookings");
+
+foreach ($queryResult as $row)
+
+		{
+
+			echo "<h1>";
+			echo $row['booking_date'] . "<br>";
+			echo "</h1>";
+			echo "<p>";
+			echo $row['booking_startime'] . "<br>"; 
+			echo "<strong>".$row['booking_endtime']." - ";
+			echo $row['booking_name'] . "</strong><br>";
+            echo $row['booking_massage'] . "</strong><br>";
+            echo $row['booking_number'] . "</strong><br>";
+	
+			echo "</p>";
+		}
+
+
+	
+?>
+
+
+<?php
+
 include'footer.php';
 ?>
 
-
-<?php
-
-
-
-?>
+</body>
+</html>

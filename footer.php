@@ -87,8 +87,8 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a>Robin & Rasse</a>
   </div>
   <!-- Copyright -->
 

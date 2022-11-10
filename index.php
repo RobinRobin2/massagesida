@@ -23,6 +23,8 @@ include'navbar.php';
             <h1>Boka tid nu!</h1>
 
             <div>
+
+            <form method="POST" action="">
                 <label for="booking_date">Datum</label>
                 <input type="date" id="booking_date" name="booking_date" required><br></br>
 
@@ -35,19 +37,15 @@ include'navbar.php';
 
              <h2>Vilken typ av massage önskas?</h2>
 
-            <form method="POST" action="">
-                <input type="radio" id="classic" name="massage" value="">
-                <label for="classic">Klassisk</label>
+             <select name="booking_massage" id="massage_type">
+             <option value="Klassiskmassage">Klassiskmassage</option>
+             <option value="Sportmassage">Sportmassage</option>
+             <option value="Fysioterapi">Fysioterapi</option>
+             <option value="Happy ending">Happy ending</option>
+             </select>
 
-                <input type="radio" id="sport" name="massage" value="">
-                <label for="sport">Sportmassage</label><br>
-
-                <input type="radio" id="fysio" name="massage" value="">
-                <label for="fysio">Fysioterapi</label>
-
-                <input type="radio" id="happy" name="massage" value="">
-                <label for="happy">Happy ending</label><br>
-
+             
+                
         
 
                 <div class="text">
@@ -99,19 +97,15 @@ if(isset($_POST['booking-submit'])){
 $bokningsdatum = $_POST['booking_date'];
 $bokningstartid = $_POST['booking_startime'];
 $bokningsslutid = $_POST['booking_endtime'];
+$massagetype = $_POST['booking_massage'];
 $bokningsnamn = $_POST['booking_name'];
 $bokningsnummer = $_POST['booking_number'];
 
-echo $bokningsdatum . "<br>";
-echo $bokningstartid . "<br>";
-echo $bokningsslutid . "<br>";
-echo $bokningsnamn . "<br>";
-echo $bokningsnummer . "<br>";
 
 
-if($conn->query("INSERT INTO bookings(booking_date, booking_startime,  booking_endtime, booking_name, booking_number)values('$bokningsdatum', '$bokningstartid',  '$bokningsslutid', '$bokningsnamn', '$bokningsnummer')")){
-	echo "Article created successfully";
-	echo "<a href='index.php'>Return</a>";
+
+if($conn->query("INSERT INTO bookings(booking_date, booking_startime,  booking_endtime, booking_massage, booking_name, booking_number)values('$bokningsdatum', '$bokningstartid',  '$bokningsslutid', '$massagetype', '$bokningsnamn', '$bokningsnummer')")){
+
 
 }
 else{
@@ -124,27 +118,7 @@ else{
 }
 
 
-	$queryResult = $conn->query("SELECT * FROM bookings");
-
-foreach ($queryResult as $row)
-
-		{
-
-			echo "<h1>";
-			echo $row['booking_date'] . "<br>";
-			echo "</h1>";
-			echo "<p>";
-			echo $row['booking_startime'] . "<br>"; 
-			echo "<strong>".$row['booking_endtime']." - ";
-			echo $row['booking_name'] . "</strong><br>";
-            echo $row['booking_number'] . "</strong><br>";
-	
-			echo "</p>";
-		}
-
-
-	
-?>
+	?>
 
 
 
