@@ -60,10 +60,7 @@ $stmt_insertPerson->execute();
 
             <div>
 
-<<<<<<< HEAD
             <form method="POST" action="">
-=======
->>>>>>> 8fcaf496a791361ecc0068772038564a75fb6372
                 <label for="booking_date">Datum</label>
                 <input type="date" id="booking_date" name="booking_date" required><br></br>
 
@@ -76,28 +73,12 @@ $stmt_insertPerson->execute();
 
              <h2>Vilken typ av massage önskas?</h2>
 
-<<<<<<< HEAD
              <select name="booking_massage" id="massage_type">
              <option value="Klassiskmassage">Klassiskmassage</option>
              <option value="Sportmassage">Sportmassage</option>
              <option value="Fysioterapi">Fysioterapi</option>
              <option value="Happy ending">Happy ending</option>
              </select>
-=======
-            <form method="POST" action="">
-                <input type="radio" id="classic" name="massage" value="">
-                <label for="classic">Klassisk</label>
-
-                <input type="radio" id="sport" name="massage" value="">
-                <label for="sport">Sportmassage</label><br>
-
-                <input type="radio" id="fysio" name="massage" value="">
-                <label for="fysio">Fysioterapi</label>
-
-
-                <input type="radio" id="happy" name="massage" value="">
-                <label for="happy">Happy ending</label><br>
->>>>>>> 8fcaf496a791361ecc0068772038564a75fb6372
 
              
                 
