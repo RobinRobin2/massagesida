@@ -14,6 +14,42 @@
 
 <?php
 include'navbar.php';
+
+
+include 'includes/config.php';
+$todaysdate = date('Y-m-d');
+
+
+if(isset($_POST['booking-submit'])){
+	
+
+$bokningsdatum = $_POST['booking_date'];
+$bokningstartid = $_POST['booking_startime'];
+$bokningsslutid = $_POST['booking_endtime'];
+$massagetype = $_POST['booking_massage'];
+$bokningsnamn = $_POST['booking_name'];
+$bokningsnummer = $_POST['booking_number'];
+
+if ($bokningsdatum < $todaysdate) {
+    $error = "Please do not choose a date from the past";
+    echo $error;
+} 
+
+else {
+$stmt_insertPerson = $conn->prepare("INSERT INTO bookings(booking_date, booking_startime,  booking_endtime, booking_massage, booking_name, booking_number)values(:bokningsdatum2, :bokningsstartid2,  :bokningsslutid2, :massagetype2, :bokningsnamn2, :bokningsnummer2)");
+
+$stmt_insertPerson->bindParam(':bokningsdatum2', $bokningsdatum, PDO::PARAM_STR);
+$stmt_insertPerson->bindParam(':bokningsstartid2', $bokningstartid, PDO::PARAM_STR);
+$stmt_insertPerson->bindParam(':bokningsslutid2', $bokningsslutid, PDO::PARAM_STR);
+$stmt_insertPerson->bindParam(':massagetype2', $massagetype, PDO::PARAM_STR);
+$stmt_insertPerson->bindParam(':bokningsnamn2', $bokningsnamn, PDO::PARAM_STR);
+$stmt_insertPerson->bindParam(':bokningsnummer2', $bokningsnummer, PDO::PARAM_STR);
+$stmt_insertPerson->execute();
+}
+}
+
+
+
 ?>
 
 
@@ -90,32 +126,6 @@ include'navbar.php';
 
 <?php
 
-include 'includes/config.php';
-
-if(isset($_POST['booking-submit'])){
-	
-$bokningsdatum = $_POST['booking_date'];
-$bokningstartid = $_POST['booking_startime'];
-$bokningsslutid = $_POST['booking_endtime'];
-$massagetype = $_POST['booking_massage'];
-$bokningsnamn = $_POST['booking_name'];
-$bokningsnummer = $_POST['booking_number'];
-
-
-
-
-if($conn->query("INSERT INTO bookings(booking_date, booking_startime,  booking_endtime, booking_massage, booking_name, booking_number)values('$bokningsdatum', '$bokningstartid',  '$bokningsslutid', '$massagetype', '$bokningsnamn', '$bokningsnummer')")){
-
-
-}
-else{
-	echo "error";
-	echo "<a href='index.php'>Return</a>";
-
-
-}
-
-}
 
 
 	?>

@@ -25,8 +25,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.php">Hem</a>
-        <a class="nav-link" href="">Boka tid nu!</a>
-        <a id="test1" class="nav-link" href="">Prislista</a>
+        <a class="nav-link" href="index.php">Boka tid nu!</a>
+        <a id="test1" class="nav-link" href="index.php">Prislista</a>
         <a class="nav-link" href="bookings.php">Bokningar</a>
       </div>
     </div>
